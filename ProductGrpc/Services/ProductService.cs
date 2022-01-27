@@ -70,6 +70,8 @@ namespace ProductGrpc.Services
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation($"Product successfully added on server side. Id: {product.Id} - Description: {product.Description}")
+
             var productModel = _mapper.Map<ProductModel>(product);
 
             return productModel;

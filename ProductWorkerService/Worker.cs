@@ -16,12 +16,15 @@ namespace ProductWorkerService
     {
         private readonly ILogger<Worker> _logger;
         private readonly IConfiguration _configuration;
+        private readonly ProductFactory _productFactory;
 
         public Worker(ILogger<Worker> logger,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ProductFactory productFactory)
         {
             _logger = logger;
             _configuration = configuration;
+            _productFactory = productFactory;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -37,22 +40,11 @@ namespace ProductWorkerService
                 using var channel = GrpcChannel.ForAddress(serverUrl);
                 var client = new ProductProtoService.ProductProtoServiceClient(channel);
 
-                Console.WriteLine("AddProductAsync started..");
+                _logger.LogInformation("AddProductAsync started..");
 
-                var addProductResponse = await client.AddProductAsync(
-                        new AddProductRequest
-                        {
-                            Product = new ProductModel
-                            {
-                                Name = productName + DateTimeOffset.Now,
-                                Description = "Product added from client",
-                                Price = 312,
-                                Status = ProductStatus.Instock,
-                                CreatedTime = Timestamp.FromDateTime(DateTime.UtcNow)
-                            }
-                        });
+                var addProductResponse = await client.AddProductAsync(await _productFactory.Generate());
 
-                Console.WriteLine("AddProduct Response: " + addProductResponse.ToString());
+                _logger.LogInformation("AddProduct Response: " + addProductResponse.ToString());
 
                 await Task.Delay(taskInterval, stoppingToken);
             }
