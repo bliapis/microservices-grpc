@@ -38,7 +38,8 @@ namespace ProductGrpc.Services
 
             if (product is null)
             {
-                // throw rpc ex
+                throw new RpcException(new Status(StatusCode.NotFound, 
+                    $"Product ID = {request.ProductId} not found"));
             }
 
             var productModel = _mapper.Map<ProductModel>(product);
@@ -72,6 +73,58 @@ namespace ProductGrpc.Services
             var productModel = _mapper.Map<ProductModel>(product);
 
             return productModel;
+        }
+
+        public override async Task<ProductModel> UpdateProduct(UpdateProductRequest request,
+            ServerCallContext context)
+        {
+            var product = _mapper.Map<Product>(request.Product);
+
+            bool existProduct = await _context.Product.AnyAsync(p => p.Id == product.Id);
+
+            if (!existProduct)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound,
+                    $"Product ID = {request.Product.ProductId} not found"));
+            }
+
+            _context.Entry(product).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+
+            var productModel = _mapper.Map<ProductModel>(product);
+
+            return productModel;
+        }
+
+        public override async Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request, 
+            ServerCallContext context)
+        {
+            var product = await _context.Product.FindAsync(request.ProductId);
+
+            if (product is null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound,
+                    $"Product ID = {request.ProductId} not found"));
+            }
+
+            _context.Product.Remove(product);
+
+            var deleteCount = await _context.SaveChangesAsync();
+
+            var response = new DeleteProductResponse
+            {
+                Success = deleteCount > 0
+            };
+
+            return response;
         }
     }
 }
