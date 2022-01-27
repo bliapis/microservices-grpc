@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductGrpcClient", "Produc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductWorkerService", "ProductWorkerService\ProductWorkerService.csproj", "{AF85FC42-53FF-4C18-A6F2-894D7FFDBCE7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{E4864451-EB79-4BBF-90F2-41F3ECE69A93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart", "ShoppingCart", "{D73DBA0F-9924-4D1C-8928-6A5FA9FD5807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartGrpc", "ShoppingCartGrpc\ShoppingCartGrpc.csproj", "{E5585BD7-BF3D-404A-9376-37AC87877B60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,19 @@ Global
 		{AF85FC42-53FF-4C18-A6F2-894D7FFDBCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF85FC42-53FF-4C18-A6F2-894D7FFDBCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF85FC42-53FF-4C18-A6F2-894D7FFDBCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5585BD7-BF3D-404A-9376-37AC87877B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5585BD7-BF3D-404A-9376-37AC87877B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5585BD7-BF3D-404A-9376-37AC87877B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5585BD7-BF3D-404A-9376-37AC87877B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{318507A2-FA11-489D-914D-5394790D362D} = {E4864451-EB79-4BBF-90F2-41F3ECE69A93}
+		{A08F32D6-18F9-4E49-B663-C226E7F71B50} = {E4864451-EB79-4BBF-90F2-41F3ECE69A93}
+		{AF85FC42-53FF-4C18-A6F2-894D7FFDBCE7} = {E4864451-EB79-4BBF-90F2-41F3ECE69A93}
+		{E5585BD7-BF3D-404A-9376-37AC87877B60} = {D73DBA0F-9924-4D1C-8928-6A5FA9FD5807}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2930312D-6D83-41D8-8BAD-B69F74FF509A}
