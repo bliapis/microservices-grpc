@@ -43,7 +43,7 @@ namespace ProductGrpc.Services
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
-                Status = (ProductStatus)product.Status,
+                Status = (Protos.ProductStatus)product.Status,
                 CreatedTime = Timestamp.FromDateTime(product.CreatedTime)
             };
 
