@@ -6,7 +6,7 @@ namespace ShoppingCartGrpc.Models
     {
         public int Id { get; set; }
         public string UserName { get; set; }
-        public List<ShoppingCartItem> Items { get; set; }
+        public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
 
         public ShoppingCart()
         {
@@ -14,7 +14,7 @@ namespace ShoppingCartGrpc.Models
 
         public ShoppingCart(string userName)
         {
-            UserName = UserName;
+            UserName = userName;
         }
 
         public float TotalPrice
