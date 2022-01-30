@@ -17,9 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartGrpc", "Shoppin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{6218AD36-AA95-4908-91E6-1BC8768963AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountGrpc", "DiscountGrpc\DiscountGrpc.csproj", "{2FF24194-9223-4F6C-808E-965CF8867CAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountGrpc", "DiscountGrpc\DiscountGrpc.csproj", "{2FF24194-9223-4F6C-808E-965CF8867CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartWorkerService", "ShoppingCartWorkerService\ShoppingCartWorkerService.csproj", "{66D323DB-95F3-47A1-90DB-BCD56AF02534}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartWorkerService", "ShoppingCartWorkerService\ShoppingCartWorkerService.csproj", "{66D323DB-95F3-47A1-90DB-BCD56AF02534}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{814A742A-3E0B-4DFD-80E3-47FEF695A48F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{A9E0E460-D488-4CD0-B143-F9DB438FA05A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{66D323DB-95F3-47A1-90DB-BCD56AF02534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D323DB-95F3-47A1-90DB-BCD56AF02534}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D323DB-95F3-47A1-90DB-BCD56AF02534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E0E460-D488-4CD0-B143-F9DB438FA05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E0E460-D488-4CD0-B143-F9DB438FA05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E0E460-D488-4CD0-B143-F9DB438FA05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E0E460-D488-4CD0-B143-F9DB438FA05A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{E5585BD7-BF3D-404A-9376-37AC87877B60} = {D73DBA0F-9924-4D1C-8928-6A5FA9FD5807}
 		{2FF24194-9223-4F6C-808E-965CF8867CAB} = {6218AD36-AA95-4908-91E6-1BC8768963AF}
 		{66D323DB-95F3-47A1-90DB-BCD56AF02534} = {D73DBA0F-9924-4D1C-8928-6A5FA9FD5807}
+		{A9E0E460-D488-4CD0-B143-F9DB438FA05A} = {814A742A-3E0B-4DFD-80E3-47FEF695A48F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2930312D-6D83-41D8-8BAD-B69F74FF509A}
